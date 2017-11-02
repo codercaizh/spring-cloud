@@ -1,17 +1,19 @@
-package com.czh.demo;
+package com.czh;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
- * helloworld应用入口
+ * 入口类
  * @author caizh
  *
  */
 @SpringBootApplication
-public class SpringbootHelloworldApplication {
+@EnableCaching
+public class SpringbootContactsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootHelloworldApplication.class, args);
+		SpringApplication.run(SpringbootContactsApplication.class, args);
 	}
 }
