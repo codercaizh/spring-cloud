@@ -51,7 +51,7 @@ public class ContactController{
 	 * @param bindingResult
 	 * @return
 	 */
-	@PostMapping()
+	@PostMapping
 	public Response saveOrUpdatedContact(@Valid Contact contact,BindingResult bindingResult) {
 		Response response = new Response();
 		if(bindingResult.hasErrors()) {

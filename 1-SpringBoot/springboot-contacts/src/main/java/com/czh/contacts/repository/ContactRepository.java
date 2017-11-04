@@ -13,6 +13,7 @@ import com.czh.contacts.entity.Contact;
  * 此接口只要继承JpaRepository,并在泛型中传入数据库表实体类对应的类型即可直接使用最基本的增删查改，而无需再实现接口。
  */
 @Repository
+//接口上需要加上事务注解，否则无法使用delete或update操作
 @Transactional
 public interface ContactRepository extends JpaRepository<Contact, Long>{
 	/**

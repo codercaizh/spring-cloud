@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
+//该注解定义了该类为一个切面类
 @Aspect
 public class RequestHandlerLogging {
 	
@@ -24,9 +25,11 @@ public class RequestHandlerLogging {
 	/**
 	 * 记录所有控制器日志
 	 */
+	//@Pointcut注解定义了切入点，下面定义的意思是该切入点为com.czh.contacts.controller这个包下所有以Controller结尾的类中所有的方法（不限参数）
 	@Pointcut("execution(* com.czh.contacts.controller.*Controller.*(..))")
     public void excudeController(){}
 	
+	//该注解定义了该方法为环绕通知
 	@Around("excudeController()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
 		//请求流水号
@@ -46,6 +49,7 @@ public class RequestHandlerLogging {
 		//处理结果
 		Object result = null;
 		try {
+			//方法执行后的结果
 			result = proceedingJoinPoint.proceed();
 		} catch (Throwable e) {
 			logger.info("请求({})处理出现异常,异常原因:{}",serialNumber,e.getMessage());

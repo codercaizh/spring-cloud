@@ -36,10 +36,8 @@ function searchContactByName(name){
 }
 
 function addContact(){
-	var id = $("#id").val();
-	$("#id").val("");
+ 	$("#id").val("");
 	saveOrUpdateContact();
-	$("#id").val(id);
 }
 
 function modifyContact(){
